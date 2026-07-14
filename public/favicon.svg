@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00e5c3"/>
+      <stop offset="100%" stop-color="#00a896"/>
+    </linearGradient>
+  </defs>
+  <!-- Deep navy background with slight rounding -->
+  <rect width="64" height="64" rx="10" fill="#080c10"/>
+  <!-- Subtle inner glow ring -->
+  <rect x="1" y="1" width="62" height="62" rx="9" fill="none" stroke="rgba(0,229,195,0.18)" stroke-width="1"/>
+  <!-- Corner bracket accents — top-left -->
+  <path d="M5 14 L5 5 L14 5" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <!-- top-right -->
+  <path d="M50 5 L59 5 L59 14" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <!-- bottom-left -->
+  <path d="M5 50 L5 59 L14 59" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <!-- bottom-right -->
+  <path d="M50 59 L59 59 L59 50" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <!-- S letterform — geometric, reads well at 16px -->
+  <path d="M39 21 C39 18 36 16 32 16 C25 16 23 20.5 23 24.5 C23 31 41 29 41 37 C41 42.5 38 48 32 48 C27 48 24 44.5 24 41.5"
+        stroke="url(#g1)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+</svg>
