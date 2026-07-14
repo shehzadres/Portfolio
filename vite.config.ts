@@ -54,7 +54,7 @@ export default defineConfig(({ command }) => ({
     // Nitro only runs at build time — targets Cloudflare Workers by default.
     // Swap the preset (e.g. "node-server", "vercel", "netlify") for a
     // different host: https://nitro.build/deploy
-    ...(command === "build" ? [nitro({ preset: "cloudflare-module" })] : []),
+    ...(command === "build" ? [nitro({ preset: "vercel" })] : []),
     viteReact(),
   ],
 }));
