@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { CommandPalette } from "../components/command-palette";
 
-const SITE_TITLE = "Shahzad — Software Engineer";
+const SITE_TITLE = "Shahzad's Portfolio";
 const SITE_DESCRIPTION =
   "Portfolio of Shahzad, a software engineer specialising in real-time collaboration, applied cryptography, WebGL data visualisation, and production-grade infrastructure.";
 

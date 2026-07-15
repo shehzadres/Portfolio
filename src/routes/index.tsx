@@ -209,7 +209,7 @@ function Hero() {
               className="animate-rise-2 mt-5 max-w-lg font-display text-xl font-semibold leading-snug"
               style={{ color: "rgba(232,237,245,0.75)" }}
             >
-              I build things at the edge of the browser — real-time collaboration, applied
+              I build things at the edge of the browser. Real-time collaboration, applied
               cryptography, and WebGL rendering pipelines.
             </p>
 
@@ -343,7 +343,7 @@ function Hero() {
                   }}
                 >
                   <p className="mono-label" style={{ color: "rgba(232,237,245,0.50)" }}>
-                    Karachi, Pakistan · NED University
+                    Karachi, Pakistan · NED University of Engineering & Technology
                   </p>
                 </div>
               </div>
@@ -768,10 +768,10 @@ function About() {
               </h2>
               <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  I'm Shahzad, a final-year Computer Science student at NED University in Karachi. I
-                  build things at the hard end of the browser — real-time collaboration engines,
-                  applied cryptography over raw WebRTC, and cinematic WebGL rendering pipelines with
-                  custom GLSL shaders.
+                  I'm Shahzad, Computer Science graduate from NED University in Karachi. I build
+                  things at the hard end of the browser. Real-time collaboration engines, applied
+                  cryptography over raw WebRTC, and cinematic WebGL rendering pipelines with custom
+                  GLSL shaders.
                 </p>
                 <p>
                   Five shipped projects spanning compilers (regex builder with Thompson NFA →
@@ -781,8 +781,8 @@ function About() {
                 </p>
                 <p>
                   Two remote internships at CoreTech Innovations and EVsim. Meta, HKUST, and Google
-                  Cloud certified. Graduating Sep 2026 — open to software engineering, backend, or
-                  full-stack roles in Karachi or remote.
+                  Cloud certified. Open to software engineering, backend, or full-stack roles in
+                  Karachi or remote.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
