@@ -250,7 +250,7 @@ The project can also be deployed on platforms supporting Nitro presets, includin
 
 🐙 https://github.com/shehzadres
 
-🌐 https://your-portfolio-url.com
+🌐 https://portfolio-tan-alpha-36.vercel.app/
 
 ---
 
