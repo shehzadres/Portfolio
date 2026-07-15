@@ -5,16 +5,6 @@
 </p>
 
 <p align="center">
-  A modern, high-performance developer portfolio showcasing full-stack projects, technical expertise, and software engineering experience.
-</p>
-
-<p align="center">
-  <a href="https://portfolio-tan-alpha-36.vercel.app/"><strong>🌐 Live Demo</strong></a> •
-  <a href="https://github.com/shehzadres"><strong>GitHub</strong></a> •
-  <a href="mailto:shehzadres@gmail.com"><strong>Email</strong></a>
-</p>
-
-<p align="center">
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)
@@ -23,6 +13,16 @@
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare)
 
+</p>
+
+<p align="center">
+  A modern, high-performance developer portfolio showcasing full-stack projects, technical expertise, and software engineering experience.
+</p>
+
+<p align="center">
+  <a href="https://portfolio-tan-alpha-36.vercel.app/"><strong>🌐 Live Demo</strong></a> •
+  <a href="https://github.com/shehzadres"><strong>GitHub</strong></a> •
+  <a href="mailto:shehzadres@gmail.com"><strong>Email</strong></a>
 </p>
 
 ---
