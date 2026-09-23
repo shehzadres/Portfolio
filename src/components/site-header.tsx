@@ -22,40 +22,37 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-border bg-background/90 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className="sticky top-0 z-50 transition-all duration-500"
+      style={{
+        background: scrolled
+          ? "rgba(5, 9, 24, 0.82)"
+          : "transparent",
+        backdropFilter: scrolled ? "blur(20px) saturate(1.5)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(1.5)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(255,255,255,0.08)"
+          : "1px solid transparent",
+        boxShadow: scrolled
+          ? "0 4px 30px rgba(0,0,0,0.4)"
+          : "none",
+      }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-        {/* Logo — clean typographic mark */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        {/* Logo */}
         <Link to="/" className="group flex items-center gap-3">
           <span
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm transition-colors duration-200"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all duration-300"
             style={{
-              border: "1.5px solid #111111",
-              background: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "#111111";
-              const span = e.currentTarget.querySelector("span") as HTMLElement | null;
-              if (span) span.style.color = "#FBFBFA";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "transparent";
-              const span = e.currentTarget.querySelector("span") as HTMLElement | null;
-              if (span) span.style.color = "#111111";
+              background: "linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%)",
+              boxShadow: "0 0 16px rgba(124,58,237,0.5)",
             }}
           >
-            <span
-              className="font-display text-xs font-bold transition-colors duration-200"
-              style={{ color: "#111111" }}
-            >
-              SZ
-            </span>
+            <span className="font-display text-xs font-bold text-white tracking-wider">SZ</span>
           </span>
-          <span className="font-display text-sm font-semibold tracking-tight text-foreground">
+          <span
+            className="font-display text-sm font-semibold"
+            style={{ color: "#EEF2FF", letterSpacing: "-0.02em" }}
+          >
             Shahzad
           </span>
         </Link>
@@ -75,33 +72,29 @@ export function SiteHeader() {
             href="/Shahzad_CV.pdf"
             download="Shahzad_CV.pdf"
             aria-label="Download CV"
-            className="hidden items-center gap-1.5 rounded px-3 py-1.5 transition-all duration-200 sm:flex"
+            className="hidden items-center gap-1.5 rounded-lg px-4 py-2 transition-all duration-200 sm:flex"
             style={{
-              border: "1px solid #EAEAEA",
-              color: "#111111",
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.62rem",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
+              border: "1px solid rgba(124,58,237,0.3)",
+              background: "rgba(124,58,237,0.08)",
+              color: "#C4B5FD",
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.8rem",
+              fontWeight: 500,
               textDecoration: "none",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "#F7F6F3";
-              (e.currentTarget as HTMLElement).style.borderColor = "#D0CFCC";
+              (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.18)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(124,58,237,0.55)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 16px rgba(124,58,237,0.25)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "transparent";
-              (e.currentTarget as HTMLElement).style.borderColor = "#EAEAEA";
+              (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.08)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(124,58,237,0.3)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "none";
             }}
           >
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path
-                d="M8 2v8M5 7l3 3 3-3"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2v8M5 7l3 3 3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M2 12.5h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
             CV
@@ -111,10 +104,19 @@ export function SiteHeader() {
             type="button"
             aria-label="Open command menu"
             onClick={() => window.dispatchEvent(new Event(OPEN_COMMAND_PALETTE))}
-            className="group flex items-center gap-2 rounded px-3 py-1.5 transition-colors hover:bg-accent"
-            style={{ border: "1px solid var(--border)" }}
+            className="group flex items-center gap-2 rounded-lg px-3 py-2 transition-all"
+            style={{
+              border: "1px solid rgba(255,255,255,0.09)",
+              background: "rgba(255,255,255,0.04)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
+            }}
           >
-            <Search className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground" />
+            <Search className="h-3.5 w-3.5" style={{ color: "#7C8DB0" }} />
             <span className="mono-label hidden sm:inline">⌘K</span>
           </button>
           <ThemeToggle />
