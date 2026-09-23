@@ -24,34 +24,43 @@ export function SiteHeader() {
     <header
       className="sticky top-0 z-50 transition-all duration-500"
       style={{
-        background: scrolled
-          ? "rgba(5, 9, 24, 0.82)"
-          : "transparent",
-        backdropFilter: scrolled ? "blur(20px) saturate(1.5)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(1.5)" : "none",
-        borderBottom: scrolled
-          ? "1px solid rgba(255,255,255,0.08)"
-          : "1px solid transparent",
+        background: scrolled ? "var(--neo-base)" : "transparent",
         boxShadow: scrolled
-          ? "0 4px 30px rgba(0,0,0,0.4)"
+          ? "-4px -4px 10px var(--neo-shadow-light), 4px 4px 16px var(--neo-shadow-dark)"
           : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(255,255,255,0.06)"
+          : "1px solid transparent",
       }}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        {/* Logo */}
+        {/* Logo — neomorphic badge */}
         <Link to="/" className="group flex items-center gap-3">
           <span
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%)",
-              boxShadow: "0 0 16px rgba(124,58,237,0.5)",
+              background: "var(--neo-base)",
+              boxShadow: "var(--shadow-convex)",
+              border: "1px solid rgba(255,255,255,0.06)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow =
+                "var(--shadow-concave), 0 0 14px rgba(99,102,241,0.3)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-convex)";
             }}
           >
-            <span className="font-display text-xs font-bold text-white tracking-wider">SZ</span>
+            <span
+              className="font-display text-xs font-bold tracking-wider"
+              style={{ color: "#a5b4fc" }}
+            >
+              SZ
+            </span>
           </span>
           <span
             className="font-display text-sm font-semibold"
-            style={{ color: "#EEF2FF", letterSpacing: "-0.02em" }}
+            style={{ color: "#e8eaf6", letterSpacing: "-0.02em" }}
           >
             Shahzad
           </span>
@@ -67,30 +76,36 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {/* Download CV */}
+          {/* Download CV — neomorphic pill button */}
           <a
             href="/Shahzad_CV.pdf"
             download="Shahzad_CV.pdf"
             aria-label="Download CV"
-            className="hidden items-center gap-1.5 rounded-lg px-4 py-2 transition-all duration-200 sm:flex"
+            className="hidden items-center gap-1.5 rounded-xl px-4 py-2 transition-all duration-250 sm:flex"
             style={{
-              border: "1px solid rgba(124,58,237,0.3)",
-              background: "rgba(124,58,237,0.08)",
-              color: "#C4B5FD",
+              background: "var(--neo-base)",
+              boxShadow: "var(--shadow-convex)",
+              border: "1px solid rgba(255,255,255,0.06)",
+              color: "#a5b4fc",
               fontFamily: "var(--font-sans)",
               fontSize: "0.8rem",
               fontWeight: 500,
               textDecoration: "none",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.18)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(124,58,237,0.55)";
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 16px rgba(124,58,237,0.25)";
+              (e.currentTarget as HTMLElement).style.boxShadow =
+                "-5px -5px 14px var(--neo-shadow-light), 5px 5px 14px var(--neo-shadow-dark), 0 0 12px rgba(99,102,241,0.2)";
+              (e.currentTarget as HTMLElement).style.color = "#c7d2fe";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(124,58,237,0.08)";
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(124,58,237,0.3)";
-              (e.currentTarget as HTMLElement).style.boxShadow = "none";
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-convex)";
+              (e.currentTarget as HTMLElement).style.color = "#a5b4fc";
+            }}
+            onMouseDown={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-concave)";
+            }}
+            onMouseUp={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-convex)";
             }}
           >
             <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -100,25 +115,35 @@ export function SiteHeader() {
             CV
           </a>
 
+          {/* Search — neomorphic icon button */}
           <button
             type="button"
             aria-label="Open command menu"
             onClick={() => window.dispatchEvent(new Event(OPEN_COMMAND_PALETTE))}
-            className="group flex items-center gap-2 rounded-lg px-3 py-2 transition-all"
+            className="group flex items-center gap-2 rounded-xl px-3 py-2 transition-all duration-200"
             style={{
-              border: "1px solid rgba(255,255,255,0.09)",
-              background: "rgba(255,255,255,0.04)",
+              background: "var(--neo-base)",
+              boxShadow: "var(--shadow-convex)",
+              border: "1px solid rgba(255,255,255,0.06)",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)";
+              (e.currentTarget as HTMLElement).style.boxShadow =
+                "-5px -5px 14px var(--neo-shadow-light), 5px 5px 14px var(--neo-shadow-dark)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-convex)";
+            }}
+            onMouseDown={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-concave)";
+            }}
+            onMouseUp={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-convex)";
             }}
           >
-            <Search className="h-3.5 w-3.5" style={{ color: "#7C8DB0" }} />
+            <Search className="h-3.5 w-3.5" style={{ color: "#6b7a99" }} />
             <span className="mono-label hidden sm:inline">⌘K</span>
           </button>
+
           <ThemeToggle />
         </div>
       </div>

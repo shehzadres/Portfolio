@@ -7,22 +7,21 @@ export function SiteFooter() {
     <footer
       id="contact"
       style={{
-        borderTop: "1px solid rgba(255,255,255,0.08)",
-        background: "rgba(5,9,24,0.7)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
+        borderTop: "1px solid rgba(255,255,255,0.05)",
+        background: "var(--neo-base-dark)",
+        boxShadow: "inset 0 4px 16px rgba(0,0,0,0.35)",
       }}
     >
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         {/* Big CTA */}
         <div className="mb-16">
-          <p className="mono-label mb-5" style={{ color: "#7C8DB0" }}>Get in touch</p>
+          <p className="mono-label mb-5" style={{ color: "#6b7a99" }}>Get in touch</p>
           <h2
             className="font-display font-bold leading-tight"
             style={{
               fontSize: "clamp(2.5rem, 6vw, 5rem)",
               letterSpacing: "-0.03em",
-              color: "#EEF2FF",
+              color: "#e8eaf6",
             }}
           >
             {"Let's build something "}
@@ -55,10 +54,13 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col items-start justify-between gap-4 border-t pt-8 sm:flex-row sm:items-center"
-          style={{ borderColor: "rgba(255,255,255,0.08)" }}
+          className="flex flex-col items-start justify-between gap-4 pt-8 sm:flex-row sm:items-center"
+          style={{
+            borderTop: "1px solid rgba(0,0,0,0.3)",
+            boxShadow: "0 -1px 0 rgba(255,255,255,0.04)",
+          }}
         >
-          <span className="mono-label" style={{ color: "#4B5A7A" }}>
+          <span className="mono-label" style={{ color: "#3d4a66" }}>
             © {year} Shahzad · Karachi, Pakistan
           </span>
           <div className="flex items-center gap-6">
