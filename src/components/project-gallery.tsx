@@ -47,11 +47,11 @@ export function ProjectGallery({ images, title }: { images: GalleryImage[]; titl
                 />
                 <div
                   className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{ background: "rgba(0,229,195,0.06)" }}
+                  style={{ background: "color-mix(in srgb, var(--primary) 8%, transparent)" }}
                 />
               </div>
               <div className="px-4 py-3" style={{ borderTop: "1px solid var(--border)" }}>
-                <span className="mono-label text-foreground/50 group-hover:text-foreground/80 transition-colors">
+                <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                   {image.caption}
                 </span>
               </div>
@@ -64,20 +64,20 @@ export function ProjectGallery({ images, title }: { images: GalleryImage[]; titl
       {isOpen && active && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "rgba(8,12,16,0.92)", backdropFilter: "blur(12px)" }}
+          style={{ background: "rgba(10,14,22,0.88)", backdropFilter: "blur(12px)" }}
           onClick={() => setOpenAt(null)}
         >
           {/* Corner decorations on the panel */}
           <div
             className="relative max-w-5xl w-full overflow-hidden rounded-lg"
-            style={{ border: "1px solid rgba(0,229,195,0.2)" }}
+            style={{ border: "1px solid var(--border)" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Cyan glow top line */}
             <div
               className="absolute inset-x-0 top-0 h-px"
               style={{
-                background: "linear-gradient(to right, transparent, var(--cyan), transparent)",
+                background: "linear-gradient(to right, transparent, var(--primary), transparent)",
               }}
             />
 
@@ -103,8 +103,8 @@ export function ProjectGallery({ images, title }: { images: GalleryImage[]; titl
               className="flex items-center justify-between gap-4 px-5 py-4"
               style={{ borderTop: "1px solid var(--border)", background: "var(--card)" }}
             >
-              <span className="mono-label text-foreground/60">{active.caption}</span>
-              <span className="mono-label">
+              <span className="text-xs text-muted-foreground">{active.caption}</span>
+              <span className="text-xs text-muted-foreground">
                 {(openAt ?? 0) + 1} / {images.length}
               </span>
             </div>
