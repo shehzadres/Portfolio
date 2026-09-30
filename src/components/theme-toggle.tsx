@@ -9,17 +9,10 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className="flex h-8 w-8 items-center justify-center rounded transition-colors hover:bg-accent"
-      style={{ border: "1px solid var(--border)" }}
+      className="flex h-9 w-9 items-center justify-center rounded-full border bg-card text-muted-foreground transition-colors hover:text-foreground"
     >
       {/* Avoid hydration mismatch by showing a neutral icon until mounted */}
-      {!mounted ? (
-        <span className="h-3.5 w-3.5" />
-      ) : theme === "dark" ? (
-        <Sun className="h-3.5 w-3.5 text-muted-foreground" />
-      ) : (
-        <Moon className="h-3.5 w-3.5 text-muted-foreground" />
-      )}
+      {!mounted ? <span className="h-4 w-4" /> : theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   );
 }

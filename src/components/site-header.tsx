@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Check, Copy, Download, Github, Search } from "lucide-react";
+import { Github, Menu, Search } from "lucide-react";
 import { OPEN_COMMAND_PALETTE } from "@/components/command-palette";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { ScrollProgress } from "@/components/motion";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import portrait from "@/assets/portrait.jpg";
 
-const EMAIL = "shehzadres@gmail.com";
 const NAV = [
   ["work", "Projects"],
   ["stack", "Stack"],
@@ -15,83 +16,99 @@ const NAV = [
 ] as const;
 
 export function SiteHeader() {
-  const [active, setActive] = useState<string>("work");
-  const [copied, setCopied] = useState(false);
+  const [active, setActive] = useState<string>("");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { rootMargin: "-40% 0px -55% 0px" },
+      { rootMargin: "-45% 0px -50% 0px" },
     );
     NAV.forEach(([id]) => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
-    return () => io.disconnect();
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch {
-      window.location.href = `mailto:${EMAIL}`;
-    }
-  };
-
   return (
-    <aside className="border-b bg-card lg:fixed lg:inset-y-0 lg:left-0 lg:z-30 lg:w-80 lg:overflow-y-auto lg:border-r lg:border-b-0">
-      <div className="flex flex-col gap-6 p-6 lg:min-h-full lg:p-8">
-        <div className="flex items-center gap-4 lg:flex-col lg:items-start">
-          <Link to="/" aria-label="Home">
-            <img src={portrait} alt="Shahzad" className="h-16 w-16 rounded-2xl border object-cover lg:h-28 lg:w-28" />
+    <>
+      <ScrollProgress />
+      <header
+        className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
+          scrolled ? "border-border bg-background/90 backdrop-blur" : "border-transparent bg-background"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-5 sm:px-8">
+          <Link to="/" aria-label="Home" className="flex items-center gap-3">
+            <img src={portrait} alt="" className="h-9 w-9 rounded-full border object-cover object-top" />
+            <span className="text-[0.95rem] leading-none font-semibold tracking-tight">
+              Shahzad
+              <span className="mt-1 block text-[0.7rem] font-normal text-muted-foreground">Full stack engineer</span>
+            </span>
           </Link>
-          <div>
-            <p className="text-xl font-semibold tracking-tight">Shahzad</p>
-            <p className="text-sm text-muted-foreground">Full stack engineer, Karachi</p>
-          </div>
-          <div className="ml-auto flex gap-2 lg:hidden">
-            <ThemeToggle />
-          </div>
-        </div>
 
-        <nav aria-label="Sections" className="-mx-1 flex gap-1 overflow-x-auto lg:flex-col lg:overflow-visible">
-          {NAV.map(([id, label]) => (
-            <a
-              key={id}
-              href={`/#${id}`}
-              aria-current={active === id ? "true" : undefined}
-              className="rounded-md border-l-2 border-transparent px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground aria-[current=true]:border-primary aria-[current=true]:bg-accent aria-[current=true]:font-medium aria-[current=true]:text-foreground"
+          <nav aria-label="Sections" className="ml-auto hidden items-center gap-1 md:flex">
+            {NAV.map(([id, label]) => (
+              <a
+                key={id}
+                href={`/#${id}`}
+                aria-current={active === id ? "true" : undefined}
+                className="relative rounded-full px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground aria-[current=true]:bg-secondary aria-[current=true]:font-medium aria-[current=true]:text-foreground"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="ml-auto flex items-center gap-2 md:ml-2">
+            <button
+              type="button"
+              aria-label="Search (Ctrl K)"
+              onClick={() => window.dispatchEvent(new Event(OPEN_COMMAND_PALETTE))}
+              className="hidden h-9 items-center gap-2 rounded-full border bg-card px-3 text-sm text-muted-foreground transition-colors hover:text-foreground sm:flex"
             >
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden flex-col gap-2 lg:mt-auto lg:flex">
-          <button
-            type="button"
-            onClick={copy}
-            className="flex items-center justify-between gap-2 rounded-lg border bg-background px-3 py-2 text-left text-sm transition-colors hover:bg-accent"
-          >
-            <span className="truncate">{copied ? "Email copied" : EMAIL}</span>
-            {copied ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} className="text-muted-foreground" />}
-          </button>
-          <div className="flex gap-2">
-            <a href="/Shahzad_CV.pdf" download className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
-              <Download size={14} /> CV
-            </a>
-            <a href="https://github.com/shehzadres" target="_blank" rel="noreferrer" aria-label="GitHub" className="flex h-9 w-9 items-center justify-center rounded-lg border transition-colors hover:bg-accent">
+              <Search size={14} />
+              <kbd className="font-mono text-[0.68rem]">Ctrl K</kbd>
+            </button>
+            <a
+              href="https://github.com/shehzadres"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="hidden h-9 w-9 items-center justify-center rounded-full border bg-card text-muted-foreground transition-colors hover:text-foreground sm:flex"
+            >
               <Github size={16} />
             </a>
-            <button type="button" aria-label="Search (Ctrl K)" onClick={() => window.dispatchEvent(new Event(OPEN_COMMAND_PALETTE))} className="flex h-9 w-9 items-center justify-center rounded-lg border transition-colors hover:bg-accent">
-              <Search size={16} />
-            </button>
             <ThemeToggle />
+            <Sheet>
+              <SheetTrigger asChild>
+                <button type="button" aria-label="Open menu" className="flex h-9 w-9 items-center justify-center rounded-full border bg-card md:hidden">
+                  <Menu size={17} />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-72 bg-background">
+                <SheetTitle className="text-base">Menu</SheetTitle>
+                <nav aria-label="Mobile sections" className="mt-6 flex flex-col gap-1">
+                  {NAV.map(([id, label]) => (
+                    <SheetClose asChild key={id}>
+                      <a href={`/#${id}`} className="rounded-lg px-3 py-2.5 text-base font-medium transition-colors hover:bg-secondary">
+                        {label}
+                      </a>
+                    </SheetClose>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-      </div>
-    </aside>
+      </header>
+    </>
   );
 }
