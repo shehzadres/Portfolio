@@ -176,8 +176,8 @@ export const projects: Project[] = [
       "Real-time WebSocket apps need explicit transport and CORS configuration at every layer (HTTP server, Socket.IO, proxy); each is independent.",
     ],
     gallery: [],
-    liveUrl: null,
-    githubUrl: "https://github.com/shehzadres/collaborative-whiteboard",
+    liveUrl: "https://real-time-whiteboard-mu.vercel.app/",
+    githubUrl: "https://github.com/shehzadres/real-time-whiteboard",
   },
 
   /* ── 03 · P2P Encrypted File Transfer (Nexus) ───────────── */
