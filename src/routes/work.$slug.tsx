@@ -70,11 +70,14 @@ function CaseStudy() {
           <h1 className="text-4xl leading-[1.08] font-semibold tracking-[-0.03em] sm:text-5xl">{p.title}</h1>
           <p className="max-w-2xl text-lg text-muted-foreground">{p.summary}</p>
           <div className="flex flex-wrap gap-3">
+            {p.showcaseUrl && (
+              <Button asChild variant="secondary" className="h-10 rounded-full px-5"><a href={p.showcaseUrl} target="_blank" rel="noreferrer">Recruiter dashboard <ArrowUpRight /></a></Button>
+            )}
             {p.liveUrl ? (
               <Button asChild className="h-10 rounded-full px-5"><a href={p.liveUrl} target="_blank" rel="noreferrer">Live demo <ArrowUpRight /></a></Button>
-            ) : (
-              <Badge variant="outline" className="rounded-full px-3 py-1.5 font-normal">Demo coming soon</Badge>
-            )}
+            ) : !p.showcaseUrl ? (
+              <Badge variant="outline" className="rounded-full px-3 py-1.5 font-normal">Automation suite · no hosted app</Badge>
+            ) : null}
             {p.githubUrl && (
               <Button asChild variant="outline" className="h-10 rounded-full px-5"><a href={p.githubUrl} target="_blank" rel="noreferrer"><Github /> Source code</a></Button>
             )}

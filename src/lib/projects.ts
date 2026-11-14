@@ -8,6 +8,7 @@ import coverWhiteboard from "@/assets/cover-collaborative-whiteboard.jpg";
 import coverNexus from "@/assets/cover-nexus-transfer.jpg";
 import coverCollabIde from "@/assets/cover-collab-ide.jpg";
 import coverGlobe from "@/assets/cover-globe3d.jpg";
+import { sqaProjects } from "./sqa-projects";
 
 import vrbWorkspace from "@/assets/gallery/visual-regex-builder/main-workspace.png";
 import vrbBuilder from "@/assets/gallery/visual-regex-builder/builder.png";
@@ -51,6 +52,7 @@ export interface Project {
   takeaways: string[];
   gallery?: GalleryImage[];
   liveUrl: string | null;
+  showcaseUrl?: string | null;
   githubUrl: string | null;
 }
 
@@ -376,6 +378,7 @@ export const projects: Project[] = [
     liveUrl: "https://webgl-data-globe.vercel.app/",
     githubUrl: "https://github.com/shehzadres/Webgl-Data-Globe",
   },
+  ...sqaProjects,
 ];
 
 export function getProject(slug: string): Project | undefined {

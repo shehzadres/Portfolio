@@ -111,6 +111,11 @@ function Links({ p }: { p: Project }) {
           <a href={p.liveUrl} target="_blank" rel="noreferrer">Live demo <ArrowUpRight /></a>
         </Button>
       )}
+      {p.showcaseUrl && (
+        <Button asChild size="sm" variant="secondary" className="rounded-full">
+          <a href={p.showcaseUrl} target="_blank" rel="noreferrer">Recruiter view <ArrowUpRight /></a>
+        </Button>
+      )}
       {p.githubUrl && (
         <Button asChild size="sm" variant="outline" className="rounded-full">
           <a href={p.githubUrl} target="_blank" rel="noreferrer"><Github /> Source</a>
