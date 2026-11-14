@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Check, Copy, Download, Github, Linkedin, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Download, Github } from "lucide-react";
 import { Reveal } from "@/components/motion";
 
 const EMAIL = "shehzadres@gmail.com";
@@ -27,7 +27,8 @@ export function SiteFooter() {
                 Open to full-time roles in Karachi or remote.
               </h2>
               <p className="mt-4 max-w-lg text-background/70">
-                I&apos;m available now for software engineering work. Email is the fastest way to reach me.
+                I&apos;m available now for software engineering work. Email is the fastest way to
+                reach me.
               </p>
               <button
                 type="button"
@@ -44,9 +45,12 @@ export function SiteFooter() {
             <ul className="grid gap-2 text-sm">
               {[
                 { href: `mailto:${EMAIL}`, Icon: ArrowUpRight, label: "Send an email" },
-                { href: "tel:+923126423009", Icon: Phone, label: "+92 312 6423009" },
-                { href: "https://github.com/shehzadres", Icon: Github, label: "github.com/shehzadres", ext: true },
-                { href: "https://linkedin.com/in/shehzadres", Icon: Linkedin, label: "linkedin.com/in/shehzadres", ext: true },
+                {
+                  href: "https://github.com/shehzadres",
+                  Icon: Github,
+                  label: "github.com/shehzadres",
+                  ext: true,
+                },
                 { href: "/Shahzad_CV.pdf", Icon: Download, label: "Download CV", dl: true },
               ].map(({ href, Icon, label, ext, dl }) => (
                 <li key={label}>

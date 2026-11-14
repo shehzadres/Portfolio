@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://portfolio-sand-eight-amcjbadefb.vercel.app/sitemap.xml

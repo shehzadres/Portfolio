@@ -30,18 +30,35 @@ function Message({ title, text, children }: { title: string; text?: string; chil
 function NotFoundComponent() {
   return (
     <Message title="Page not found" text="That address doesn't exist on this site.">
-      <Link to="/" className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">Back to home</Link>
+      <Link
+        to="/"
+        className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+      >
+        Back to home
+      </Link>
     </Message>
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   const router = useRouter();
-  useEffect(() => { console.error(error); }, [error]);
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
   return (
     <Message title="Something went wrong" text="Reload the page or try again.">
-      <button onClick={() => { router.invalidate(); reset(); }} className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">Try again</button>
-      <a href="/" className="rounded-lg border px-4 py-2 text-sm font-medium">Home</a>
+      <button
+        onClick={() => {
+          router.invalidate();
+          reset();
+        }}
+        className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+      >
+        Try again
+      </button>
+      <a href="/" className="rounded-lg border px-4 py-2 text-sm font-medium">
+        Home
+      </a>
     </Message>
   );
 }

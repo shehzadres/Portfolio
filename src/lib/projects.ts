@@ -176,7 +176,7 @@ export const projects: Project[] = [
       "Real-time WebSocket apps need explicit transport and CORS configuration at every layer (HTTP server, Socket.IO, proxy); each is independent.",
     ],
     gallery: [],
-    liveUrl: "https://collaborative-whiteboard-zeta-nine.vercel.app/",
+    liveUrl: null,
     githubUrl: "https://github.com/shehzadres/collaborative-whiteboard",
   },
 

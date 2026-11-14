@@ -18,10 +18,10 @@
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "preview": "vite preview",
-    "deploy": "vite build && npx nitro deploy --prebuilt",
+    "preview": "srvx serve --prod --dir .vercel/output --static static --entry functions/__server.func/index.mjs",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "node node_modules/prettier/bin/prettier.cjs --write .",
+    "format:check": "node node_modules/prettier/bin/prettier.cjs --check ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

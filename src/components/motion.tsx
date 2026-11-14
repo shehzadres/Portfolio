@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ElementType,
+  type ReactNode,
+} from "react";
 
 /** Fades and lifts its children in once, the first time they scroll into view. */
 export function Reveal({

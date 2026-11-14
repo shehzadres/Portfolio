@@ -42,15 +42,23 @@ export function SiteHeader() {
       <ScrollProgress />
       <header
         className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
-          scrolled ? "border-border bg-background/90 backdrop-blur" : "border-transparent bg-background"
+          scrolled
+            ? "border-border bg-background/90 backdrop-blur"
+            : "border-transparent bg-background"
         }`}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-5 sm:px-8">
           <Link to="/" aria-label="Home" className="flex items-center gap-3">
-            <img src={portrait} alt="" className="h-9 w-9 rounded-full border object-cover object-top" />
+            <img
+              src={portrait}
+              alt=""
+              className="h-9 w-9 rounded-full border object-cover object-top"
+            />
             <span className="text-[0.95rem] leading-none font-semibold tracking-tight">
               Shahzad
-              <span className="mt-1 block text-[0.7rem] font-normal text-muted-foreground">Full stack engineer</span>
+              <span className="mt-1 block text-[0.7rem] font-normal text-muted-foreground">
+                Full stack engineer
+              </span>
             </span>
           </Link>
 
@@ -89,7 +97,11 @@ export function SiteHeader() {
             <ThemeToggle />
             <Sheet>
               <SheetTrigger asChild>
-                <button type="button" aria-label="Open menu" className="flex h-9 w-9 items-center justify-center rounded-full border bg-card md:hidden">
+                <button
+                  type="button"
+                  aria-label="Open menu"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border bg-card md:hidden"
+                >
                   <Menu size={17} />
                 </button>
               </SheetTrigger>
@@ -98,7 +110,10 @@ export function SiteHeader() {
                 <nav aria-label="Mobile sections" className="mt-6 flex flex-col gap-1">
                   {NAV.map(([id, label]) => (
                     <SheetClose asChild key={id}>
-                      <a href={`/#${id}`} className="rounded-lg px-3 py-2.5 text-base font-medium transition-colors hover:bg-secondary">
+                      <a
+                        href={`/#${id}`}
+                        className="rounded-lg px-3 py-2.5 text-base font-medium transition-colors hover:bg-secondary"
+                      >
                         {label}
                       </a>
                     </SheetClose>

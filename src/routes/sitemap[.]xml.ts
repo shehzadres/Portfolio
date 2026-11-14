@@ -2,8 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { projects } from "@/lib/projects";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://portfolio-sand-eight-amcjbadefb.vercel.app";
 
 interface SitemapEntry {
   path: string;
